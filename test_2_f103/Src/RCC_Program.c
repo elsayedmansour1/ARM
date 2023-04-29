@@ -120,3 +120,38 @@ void RCC_PLLConfig(uint8_t MultiFactor, uint8_t PLLSrc)
 
 	}
 }
+void RCC_SetAHB_PeripheralCLKState(uint8_t Peripheral,uint8_t State)
+{
+	if (State==ON)
+	{
+		SET_BIT(RCC_BA->AHBENR,Peripheral);
+	}
+	else if(State==OFF)
+	{
+		CLR_BIT(RCC_BA->AHBENR,Peripheral);
+	}
+}
+
+void RCC_SetAPB2_PeripheralCLKState(uint8_t Peripheral,uint8_t State)
+{
+	if (State==ON)
+	{
+		SET_BIT(RCC_BA->APB2ENR,Peripheral);
+	}
+	else if(State==OFF)
+	{
+		CLR_BIT(RCC_BA->APB2ENR,Peripheral);
+	}
+}
+
+void RCC_SetAPB1_PeripheralCLKState(uint8_t Peripheral,uint8_t State)
+{
+	if (State==ON)
+	{
+		SET_BIT(RCC_BA->APB1ENR,Peripheral);
+	}
+	else if(State==OFF)
+	{
+		CLR_BIT(RCC_BA->APB1ENR,Peripheral);
+	}
+}
